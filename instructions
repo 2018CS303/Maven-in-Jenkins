@@ -1,0 +1,64 @@
+Maven is a build automation tool primarily used for java projects.In software development,"Build" is a process of creating a final application in the form of executables or binaries
+by combining and compiling all the required source code.Build process for a  simple peice of code like a "hello world!" would not be complicated but in the case of huge projects there
+might be several dependencies and plugins required to make an executable.In such cases , a set of instructions to add the plugins and dependencies required must be given during build automation.
+Maven takes this information from pom.xml file.
+Therefore to use maven for build automation pom.xml file is required.
+
+SETTING UP MAVEN ON JENKINS:
+STEP 1:
+INSTALL JDK:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+get $JAVA_HOME 
+OS X and ubuntu:
+ on teminal: echo $JAVA_HOME(if empty JAVA_HOME environment variable is not set)
+
+STEP 2:
+INSTALL MAVEN:
+on ubuntu : sudo apt-get install maven
+on mac:usually comes with java
+
+GET MAVEN HOME: 
+OSX and ubuntu: 
+  on terminal:mvn --version
+  the above command displays maven home directory
+
+STEP 3:
+Login to jenkins on http://localhost:8080/
+ON JENKINS DASHBOARD:
+Manage Jenkins > Global Tool Configuation
+click on "JDK installations"
+enter name(example:jdk) and JAVA_HOME(from step 1)
+
+click on "MAVEN installations"
+enter name(example:maven) and MAVEN_HOME(from step 2)
+
+click on apply and save
+
+STEP 4:
+Get back to jenkins default dashboard
+click on "New Item"
+enter a name for the project.
+choose "Maven Project" for project type.
+click "ok"
+
+STEP 5:
+configure the project:
+in Source code management,
+choose git.
+enter the path any java project with a pom.xml file.
+for understanding purposes ,you can use "https://github.com/itcuties/Axis-2-client.git"
+
+in Build,
+enter Root POM(path of pom.xml file)
+the above mentioned git repo has pom.xml in "HighScoresServiceClient/pom.xml"
+
+enter Goals and options as "compile" 
+click apply and save
+
+STEP 6:
+click on "build now"
+
+STEP 7:
+After build completes, look at the console output.We can see "build success".
+
+
