@@ -61,4 +61,5 @@ click on "build now"
 STEP 7:
 After build completes, look at the console output.We can see "build success".
 
+Sample Hello world project with maven:https://github.com/jabedhasan21/java-hello-world-with-maven
 
